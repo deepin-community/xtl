@@ -1,4 +1,6 @@
 #!/usr/bin/make -f
-
 %:
 	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DGTEST_SRC_DIR=/usr/src/gtest
