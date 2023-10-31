@@ -1,0 +1,29 @@
+From 953e8b3528aa42d2e95359314f2fd7f5e81e0ab6 Mon Sep 17 00:00:00 2001
+From: Vincent Bernat <vincent@bernat.ch>
+Date: Wed, 4 Oct 2023 10:56:41 +0200
+Subject: [PATCH] test/CMakeLists.txt: remove extra find_package(Threads)
+
+The directive is also present later. The earlier occurrence makes compilation fail with the following error:
+
+```
+CMake Error at /usr/share/cmake-3.27/Modules/FindThreads.cmake:66 (message):
+  FindThreads only works if either C or CXX language is enabled
+Call Stack (most recent call first):
+  CMakeLists.txt:13 (find_package)
+```
+---
+ test/CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/test/CMakeLists.txt b/test/CMakeLists.txt
+index d85a02c..955ff22 100644
+--- a/test/CMakeLists.txt
++++ b/test/CMakeLists.txt
+@@ -10,7 +10,6 @@
+ cmake_minimum_required(VERSION 3.1)
+ 
+ find_package(doctest            REQUIRED)
+-find_package(Threads)
+ 
+ if (CMAKE_CURRENT_SOURCE_DIR STREQUAL CMAKE_SOURCE_DIR)
+     project(xtl-test)

@@ -1,0 +1,3 @@
+Test-Command: cd test && cmake -DGTEST_SRC_DIR=/usr/src/gtest . && make && make test
+Depends: xtl-dev, cmake, libgtest-dev, doctest-dev, g++
+Restrictions: allow-stderr

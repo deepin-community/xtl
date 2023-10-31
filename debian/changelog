@@ -1,5 +1,69 @@
-template-repository (1.0-1) unstable; urgency=medium
+xtl (0.7.5-3) unstable; urgency=medium
 
-  * Initial release
+  * d/test: add missing xtl-dev dependency. Closes: #1052544.
+  * d/patches: add patch to fix test/CMakeLists.txt.
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Vincent Bernat <bernat@debian.org>  Wed, 04 Oct 2023 10:53:52 +0200
+
+xtl (0.7.5-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Vincent Bernat <bernat@debian.org>  Sat, 23 Sep 2023 16:30:07 +0200
+
+xtl (0.7.5-1) experimental; urgency=medium
+
+  * New upstream version. Closes: #1029992.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 02 Feb 2023 20:37:04 +0100
+
+xtl (0.7.2-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Vincent Bernat <bernat@debian.org>  Sat, 09 Oct 2021 17:26:03 +0200
+
+xtl (0.7.2-1) experimental; urgency=medium
+
+  * New upstream version. Closes: #984872.
+  * d/patches: drop -march=native patch
+  * d/patches: remove patch for broken test, fixed upstream
+
+ -- Vincent Bernat <bernat@debian.org>  Tue, 09 Mar 2021 21:25:23 +0100
+
+xtl (0.6.23-1) unstable; urgency=medium
+
+  * New upstream version 0.6.23
+  * Update patches
+    - Drop 0001-Install-cmake-pkgconfig-in-usr-share.patch, upstreamed
+    - Patch a failing test in test_xsystem due to assumptions about the
+      build directory naming
+  * Run the test suite as an autopkgtest
+
+ -- Gordon Ball <gordon@chronitis.net>  Tue, 12 Jan 2021 12:35:53 +0000
+
+xtl (0.6.21-1) unstable; urgency=medium
+
+  [ Gordon Ball ]
+  * New upstream version: 0.6.21
+  * Make xtl-dev arch:all. As this is a header-only library (+cmake and
+    pkg-config metadata), installing to arch-dependent tasks and duplicating
+    the package can be avoided. This moves the metadata from usr/lib/tuple to
+    usr/share.
+  * Patch out use of -march=native in tests. This didn't affect the result
+    (since there was no compiled object in the package), but generated build
+    log scanning errors. (Closes: #961402)
+  * Update Standards-Version to 4.5.0
+  * Declare Rules-Requires-Root: no
+  * Update homepage to github.com/xtensor-stack/xtl
+
+  [ Vincent Bernat ]
+  * Prepare for release
+
+ -- Vincent Bernat <bernat@debian.org>  Sun, 22 Nov 2020 16:02:55 +0100
+
+xtl (0.6.9-1) unstable; urgency=medium
+
+  * Initial release (Closes: #939936)
+
+ -- Vincent Bernat <bernat@debian.org>  Sat, 14 Dec 2019 18:27:18 +0100
